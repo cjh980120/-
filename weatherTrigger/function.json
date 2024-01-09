@@ -1,0 +1,14 @@
+  {
+    "scriptFile": "../dist/src/timerTrigger/weatherTrigger.js",
+    "bindings": [
+      {
+        "name": "weatherTrigger",
+        "type": "timerTrigger",
+        "direction": "in",
+        "schedule": "30 18 * * 1-5"
+      }
+   
+    ]
+  }
+
+ 
