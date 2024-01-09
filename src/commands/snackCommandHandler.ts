@@ -13,8 +13,12 @@ export class snackCommandHandler implements TeamsFxBotCommandHandler {
   ): Promise<string | Partial<Activity> | void> {
     console.log(`Bot received message: ${message.text}`);
 
-    const mentionedUsersRegex = /@\w+/g;
-    const mentionedUsers = message.text.match(mentionedUsersRegex) || [];
+  const mentionedUsersRegex = /@[\w가-힣]+/g;
+
+  const mentionedUsers = (message.text.match(mentionedUsersRegex) || [])
+    .map((mention) => mention.replace('@', '')) 
+    .filter((mention) => mention.length > 0); 
+
 
     if (mentionedUsers.length === 0) {
      const cardData: stuffCardData = {
